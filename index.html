@@ -110,33 +110,61 @@
     </div>
     <!--End Warning Modal Templates-->
 
+    <!-- PleaseWait Modal Start here-->
+    <div class="modal fade bs-example-modal-sm" id="myPleaseWait" tabindex="-1"
+        role="dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span class="glyphicon glyphicon-time">
+                        </span>Please Wait
+                     </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info
+                        progress-bar-striped active"
+                        style="width: 100%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- PleaseWait Modal ends Here -->
 
   </div>
 </div>
 
 <script>
 
-$("#sendmail").click(function() {
+  $("#sendmail").click(function() {
 
-  emailjs.send('default_service','template_GbkdJBj3',
-    {
-      from_name: document.getElementById('from_name').value,
-      from_email: document.getElementById('from_email').value,
-      to_name: document.getElementById('to_name').value,
-      to_email: document.getElementById('to_email').value,
-      message_html: 'http://ntt2k.io',
-    })
+    var emailJSObj = emailjs.send('default_service','template_GbkdJBj3',
+      {
+        from_name: document.getElementById('from_name').value,
+        from_email: document.getElementById('from_email').value,
+        to_name: document.getElementById('to_name').value,
+        to_email: document.getElementById('to_email').value,
+        message_html: 'http://ntt2k.io',
+      });
 
-    .then(function(response) {
-       $('#myModal').modal('hide');
-       $('#modal-success').modal('show');
-       console.log("SUCCESS. status=%d, text=%s", response.status, response.text);
-    }, function(err) {
       $('#myModal').modal('hide');
-      $('#modal-warning').modal('show');
-       console.log("FAILED. error=", err);
-    });
-});
+      $('#myPleaseWait').modal('show');
+
+      emailJSObj.then(function(response) {
+         $('#myPleaseWait').modal('hide');
+         $('#modal-success').modal('show');
+         console.log("SUCCESS. status=%d, text=%s", response.status, response.text);
+      }, function(err) {
+        $('#myPleaseWait').modal('hide');
+        $('#modal-warning').modal('show');
+         console.log("FAILED. error=", err);
+      });
+
+
+  });
 
 </script>
 </body>
