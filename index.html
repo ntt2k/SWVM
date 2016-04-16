@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Simple WebRTC Video Meeting</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="modal.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <style>
+    .centered{
+        margin: 0 auto;
+    }
+  </style>
+
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("user_gMpS0XFc6QdTeY0u687FX");
+       })();
+  </script>
+</head>
+<body>
+
+<div class="container">
+  <div class="centered text-center">
+    <h1>Simple WebRTC Video Meeting</h1>
+    <!-- Trigger the modal with a button -->
+    <br>
+    <br>
+    <h3>This web app will send the email link to invite you and your freind to join a WebRTC Video meeting session.</h3>
+    <br>
+    <br>
+    <br>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Create A Meeting</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Invite Your Friend</h4>
+            </div>
+            <div class="modal-body" id="myModalBody">
+
+                    <div class="form-group text-left">
+                        <label >Your Name</label>
+                        <input type="text" id="from_name" placeholder="Your Name" class="form-control"/>
+                    </div>
+                    <div class="form-group text-left">
+                        <label >Your Email</label>
+                        <input type="text" id="from_email" placeholder="Your Email"  class="form-control" />
+                    </div>
+                    <div class="form-group text-left">
+                        <label >Freind's  Name</label>
+                        <input type="text" id="to_name" placeholder="Freind's Name" class="form-control"/>
+                    </div>
+                    <div class="form-group text-left">
+                        <label >Freind's Email</label>
+                        <input type="text" id="to_email" placeholder="Freind's Email"  class="form-control" />
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" id="sendmail" class="btn btn-success">Send Mail</button>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!--Success Modal Templates-->
+     <div id="modal-success" class="modal modal-message modal-success fade" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <i class="glyphicon glyphicon-check"></i>
+                 </div>
+                 <div class="modal-title">Success</div>
+                 <div class="modal-body">Mail have been sent!</div>
+                 <div class="modal-footer">
+                     <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+                 </div>
+             </div> <!-- / .modal-content -->
+         </div> <!-- / .modal-dialog -->
+     </div>
+     <!--End Success Modal Templates-->
+
+     <!--Warning Modal Templates-->
+    <div id="modal-warning" class="modal modal-message modal-warning fade" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <i class="fa fa-warning"></i>
+                </div>
+                <div class="modal-title">Warning</div>
+
+                <div class="modal-body">Error in sending mail!</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">OK</button>
+                </div>
+            </div> <!-- / .modal-content -->
+        </div> <!-- / .modal-dialog -->
+    </div>
+    <!--End Warning Modal Templates-->
+
+
+  </div>
+</div>
+
+<script>
+
+$("#sendmail").click(function() {
+
+  emailjs.send('default_service','template_GbkdJBj3',
+    {
+      from_name: document.getElementById('from_name').value,
+      from_email: document.getElementById('from_email').value,
+      to_name: document.getElementById('to_name').value,
+      to_email: document.getElementById('to_email').value,
+      message_html: 'http://ntt2k.io',
+    })
+
+
+    .then(function(response) {
+       $('#myModal').modal('hide');
+       $('#modal-success').modal('show');
+       console.log("SUCCESS. status=%d, text=%s", response.status, response.text);
+    }, function(err) {
+      $('#myModal').modal('hide');
+      $('#modal-warning').modal('show');
+       console.log("FAILED. error=", err);
+    });
+});
+
+</script>
+</body>
+</html>
