@@ -17,8 +17,9 @@ Alpha v0.1:
     and wait for hand-shake connection
 
 Future release:
-    + Need to implement generate conference link
-    + Need to implement detect online users
+  + Need to implement generate conference link
+  + Need to implement detect online users
+
 
 Live Demo
 ---------
