@@ -12,8 +12,12 @@ Live Demo
 ---------
 
 https://swvm.online
+-------------------
 
 ![Screenshot](screenshot/screenshot1.png)
+![Screenshot](screenshot/screenshot2.png)
+![Screenshot](screenshot/screenshot3.png)
+![Screenshot](screenshot/screenshot4.png)
 
 Installation on localhost
 -------------------------
