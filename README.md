@@ -10,12 +10,11 @@ Right now it can only send email invitation for an online video chat (work both 
 Version History
 ---------------
 
-Alpha v0.1: 
+Alpha v0.1:
     + Can forward email using only Javascrip
     + Start video right after send email
       and wait for hand-shake connection
 
-------------------------------------------------    
 Future release:
     + Need to implement generate conference link
     + Need to implement detect online users 
