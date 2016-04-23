@@ -2,7 +2,7 @@ Simple WebRTC Video Meeting
 ---------------------------
 (using PubNub as signal server)
 
-+ The goal of this project to replace Cisco WebMeeting or Google+ Hangout with something 100% open-source! 
++ The goal of this project to replace Cisco WebEx, GoToMeeting or Google+ Hangout with something 100% open-source! 
 
 + Right now it can only send email invitation for an online video chat (work both on Desktop & Mobile platform) 
 ... next feature for screensharing, etc ...
