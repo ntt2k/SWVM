@@ -12,7 +12,7 @@ Version History
 ---------------
 
 Alpha v0.1:
-  + Can forward email using only Javascrip
+  + Can forward email using only Javascript
   + Start video right after send email
     and wait for hand-shake connection
 
