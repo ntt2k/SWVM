@@ -40,5 +40,5 @@ Installation on localhost
  
 Installation on live server
 -------------------------
-- Pleas have SSL certificate enabled:
+- Please have SSL certificate enabled:
 - Tutorial --> https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04
